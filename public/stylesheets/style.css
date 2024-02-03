@@ -1,14 +1,48 @@
+/* APP.CSS */
 @import url('https://fonts.googleapis.com/css2?family=Khula&family=Roboto&display=swap');
 
 :root {
-    --primary-color: #0B2B40;
-    --text-color: #F5F5F5;
-    --black: #0A0A0A;
+  --primary-color: #0B2B40;
+  --text-color: #F5F5F5;
+  --black: #0A0A0A;
 
-    --action-color: #e07c1f;
-    --action-color-hover: #ff9e4f;
-    --action-active-color: #ff7e00;
+  --action-color: #e07c1f;
+  --action-color-hover: #ff9e4f;
+  --action-active-color: #ff7e00;
 }
+
+/*Animations*/
+@keyframes shake {
+  0% {
+    transform: rotate(5deg);
+  }
+
+  20% {
+    transform: rotate(-8deg);
+  }
+
+  30% {
+    transform: rotate(-16deg);
+  }
+
+  60% {
+    transform: rotate(8deg)
+  }
+
+  50% {
+    transform: rotate(16deg);
+  }
+
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Main container */
 main {
   min-height: calc(100vh - 90px - 90px);
   overflow-y: auto;
@@ -61,75 +95,186 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: 'Khula', sans-serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Khula', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
 }
-/*HOME*/
+
 #heroHeader {
-    font-weight: 600;
+  font-weight: 600;
 }
+
 p {
-    font-size: 18px;
+  font-size: 18px;
 
 }
 
 p,
 small {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/*Smaller Font for Mobile */
+@media screen and (max-width: 989px) {
+  main p {
+    font-size: 16px;
+  }
 }
 
 /*BUTTONS*/
 .btnPrimary,
 .btnSecondary {
-    color: var(--text-color);
-    font-weight: 600;
-    text-decoration: none;
-    vertical-align: middle;
-    padding: .5em 1em;
-    border-radius: 8px;
-    border: 2px solid var(--action-color);
-    transition: background-color 0.3s ease;
+  color: var(--text-color);
+  font-weight: 600;
+  text-decoration: none;
+  vertical-align: middle;
+  padding: .5em 1em;
+  border-radius: 8px;
+  border: 2px solid var(--action-color);
+  transition: background-color 0.3s ease;
 }
 
 .btnPrimary {
-    background-color: var(--action-color);
+  background-color: var(--action-color);
 }
 
 .btnSecondary {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .btnPrimary:hover,
 .btnPrimary:focus,
 .btnSecondary:hover,
 .btnSecondary:focus {
-    background-color: var(--action-color-hover);
+  background-color: var(--action-color-hover);
 
 }
 
 .btnPrimary:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--action-color);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--action-color);
 }
 
 .btnPrimary:active {
-    background-color: var(--action-active-color);
+  background-color: var(--action-active-color);
 }
 
 /* Page Containers */
 .pageContainer,
 .skillsContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/*ABOUT*/
+.skillsContainer {
+  /*Improve logo visibility on lightBlue BG*/
+  background-color: rgb(255, 255, 255, 0.2);
+  border-radius: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-/*PROJECTS*/
+.buttonsWrapper {
+  display: flex;
+  gap: 10px;
+}
 
-/*CONTACT*/
+/* ABOUT & SKILLS */
+#descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#aboutContainer img {
+  border-radius: 16px;
+  box-shadow: 16px 16px 4px 0 var(--primary-color);
+}
+
+.skillsContainer svg {
+  transition: ease-in-out .2s;
+  max-width: 100px;
+  margin: 16px;
+}
+
+.skillsContainer svg:hover {
+  animation: shake 0.4s ease-in-out;
+  animation-iteration-count: 1;
+}
+
+@media screen and (max-width: 577px) {
+  .skillsContainer {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+
+  #aboutContainer img {
+    margin-bottom: 1em;
+  }
+
+}
+
+@media screen and (max-width: 990) {
+  #aboutContainer img {
+    height: 260px;
+  }
+
+}
+
+/*PROJECTS PAGE*/
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/*ProjectCard Hover Animation*/
+.projectCard a.hovered img {
+  opacity: .8;
+  transform: scale(1.05);
+  transition: 0.3s ease-in;
+}
+
+/*Text styles & positioning on hover*/
+.projectCard a {
+  position: relative;
+}
+
+.linkText {
+  position: absolute;
+  background-color: var(--action-color);
+  color: var(--text-color);
+  padding: 10px;
+  border-radius: 5px;
+  /* Position it relative to the container */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*Center Stack layout at bootstrap grid breakpoints*/
+@media screen and (max-width: 992px) {
+
+  /*Add space between header & the content above it*/
+  .projectCard h2 {
+    margin-top: 16px;
+  }
+
+  /* Space between buttons & footer*/
+  .projectCard:last-of-type {
+    margin-bottom: 2em;
+  }
+}
+
+textarea {
+  max-height: 200px;
+}
 
 /*FOOTER*/
 footer {
@@ -139,6 +284,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  border: none;
 }
 
 footer .socialLinkBtn {
