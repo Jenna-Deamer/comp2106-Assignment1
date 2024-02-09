@@ -1,6 +1,6 @@
 # Jenna Deamer Portfolio
 
-Welcome to my personal portfolio showcasing my skills and projects that I've developed. You can visit the live portfolio at 
+Welcome to my personal portfolio showcasing my skills and projects that I've developed. You can visit the live portfolio at https://express-portfolio-5v91.onrender.com
 
 ## Features
 
